@@ -25,7 +25,7 @@ const Dashboard = () => {
     ];
 
     useEffect(() => {
-        fetch('../src/data/data.json') // Correct path for public directory
+        fetch('/data/data.json') // Correct path for public directory
             .then(response => response.json())
             .then((data) => {
                 setDashBoardCard(data);
