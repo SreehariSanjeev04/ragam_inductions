@@ -1,0 +1,48 @@
+.grid-item {
+    overflow: hidden;
+    border-radius: 1rem;
+    height: 20rem;
+    width: 20rem;
+    text-align: center;
+    color: hsl(0, 0%, 10%);
+    position: relative; 
+}
+.grid-item-child:hover {
+    background-color: hsl(235, 40%, 38%);
+    transition: background-color .5s ease;
+}
+.grid-item-child {
+    z-index: 2;
+    color: white;
+    padding: 1rem;
+    background-color: hsl(235, 46%, 20%);
+    height: calc(100% - 3rem); 
+    border-radius: 1rem;
+    position: absolute; 
+    top: 3rem; 
+    left: 0;
+    right: 0;
+}
+
+.child-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.child-content {
+    text-align: left;
+}
+
+.child-content h1 {
+    font-size: 3rem;
+}
+
+.grid-content {
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    opacity: 1;
+    transform: translateY(0);
+}
+.grid-content-exit {
+    opacity: 0;
+    transform: translateY(-10px);
+}
