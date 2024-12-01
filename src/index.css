@@ -1,27 +1,35 @@
+@font-face {
+  font-family: 'Rubik';
+  src: url('/fonts/Rubik-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100; /* Black weight is typically 900 */
+  font-style: normal;
+}
 html, body {
+  font-family: 'Rubik', sans-serif;
   height: 100%;
+  width: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden;
   font-size: 16px;
 }
 
+
 .dashboard {
   height: 100vh;
-  width: 100vw; 
+  width: 100%;
   background-color: hsl(226, 43%, 10%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .dashboard-grid {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: auto;
   gap: 1rem;
 }
+
 .first-item {
   width: 20rem;
   display: flex;
@@ -29,6 +37,7 @@ html, body {
   height: 100%;
   grid-row: span 2;
 }
+
 .top-component {
   padding: 2rem;
   display: flex;
@@ -39,6 +48,7 @@ html, body {
   border-radius: 1rem;
   z-index: 2;
 }
+
 .bottom-component {
   margin-top: -1rem;
   border-radius: 0rem 0rem 1rem 1rem;
@@ -52,29 +62,78 @@ html, body {
 }
 
 .bottom-component h3 {
-  cursor: pointer
-}
-.bottom-component h3:hover {
-  color: white !important;
-  transition: color 0.3s ease-in-out;
+  cursor: pointer;
 }
 
 .bottom-component h3:hover {
   color: white;
   transition: color 0.3s ease-in-out;
 }
+
 .top-component img {
   margin-bottom: 2.5rem;
   border: 5px solid white;
   border-radius: 50%;
 }
+
 .top-component-name h1 {
   margin-top: 10px;
   margin-bottom: 5px;
   font-size: 3rem;
 }
+
 .top-component-name {
   line-height: 40px;
   display: flex;
   flex-direction: column;
+}
+
+@media screen and (max-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: auto;
+    gap: 1rem;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+  }
+
+  .first-item {
+    margin: auto;
+    width: 100%;
+    grid-row: span 1;
+  }
+  .dashboard {
+    height: auto;
+    justify-content: center;
+    align-items: center;
+  }
+  .top-component {
+    padding-top: 2rem;
+    padding-left: .75rem;
+    padding-right: .75rem;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+  }
+  .top-component img {
+    margin-bottom: 0px;
+    height: 3.5rem;
+    width: 3.5rem;
+  }
+  .top-component-text h3 {
+    margin: 0;
+  }
+  .top-component-name {
+    flex-direction: row;
+    gap: 1rem;
+  }
+  .top-component-name h1 {
+    margin: 0;
+    font-size: 2rem;
+  }
+  .bottom-component {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  
 }

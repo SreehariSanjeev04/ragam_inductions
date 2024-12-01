@@ -7,11 +7,13 @@ import SvgExercise from '../src/components/svg_exercise';
 import SvgPlay from '../src/components/svg_play';
 import SvgSelfCare from '../src/components/svg_self_care';
 import SvgSocial from '../src/components/svg_social';
-
+import { MdOutlineDarkMode } from "react-icons/md";
+import { MdOutlineWbSunny } from "react-icons/md";
 const Dashboard = () => {
+    const Dark = true;
     const [dashboardCard, setDashBoardCard] = useState([]);
     const info = ["Daily", "Weekly", "Monthly"];
-    const modified_info = ["Day", "Week", "Month"];
+    const modified_info = ["Yesterday", "Last Week", "Last Month"];
     const [selected, setSelected] = useState(0); 
     const [transitioning, SetTransitioning] = useState(false);
     const colors = ['hsl(15, 100%, 70%)', 'hsl(195, 74%, 62%)', 'hsl(348, 100%, 68%)', 'hsl(145, 58%, 55%)', 'hsl(264, 64%, 52%)', 'hsl(43, 84%, 65%)'];
@@ -43,6 +45,8 @@ const Dashboard = () => {
 
     return (
         <div className="dashboard">
+            {Dark ? <MdOutlineWbSunny style={{color: 'white', position: 'absolute', top: '1rem', left: '1rem', width: '3rem', height: '3rem'}}/> : <MdOutlineDarkMode style={{color: 'white', position: 'absolute', top: '1rem', left: '1rem', width: '3rem', height: '3rem'}}/>}
+            
             <div className="dashboard-grid">
                 <div className="first-item">
                     <div className="top-component">
