@@ -10,8 +10,28 @@
     flex-direction: column;
 }
 
+.child-content p {
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.5s ease; /* Smooth transition for opacity */
+}
+
+/* .grid-item:hover {
+    z-index: 10;
+    height: 30rem;
+    transition: height .3s ease-in;
+} */
+
+/* Make the paragraph visible on hover */
+.grid-item:hover .child-content p {
+    opacity: 1; /* Show the paragraph */
+}
+
 .grid-item-child:hover {
     background-color: hsl(235, 40%, 38%);
+    transition: background-color 0.5s ease;
+}
+.dashboard-light .grid-item-child:hover {
+    background-color: hsl(0, 0%, 63%);
     transition: background-color 0.5s ease;
 }
 
@@ -27,7 +47,18 @@
     left: 0;
     right: 0;
 }
-
+.dashboard-light .grid-item-child {
+    z-index: 2;
+    color: white;
+    padding: 1rem;
+    background-color: hsl(0, 0%, 44%);
+    height: calc(100% - 3rem);
+    border-radius: 1rem;
+    position: absolute;
+    top: 3rem;
+    left: 0;
+    right: 0;
+}
 .child-header {
     display: flex;
     justify-content: space-between;
@@ -77,4 +108,8 @@
     .child-content h3 {
         margin: 0;
     }
+    .child-content .hidden-content p{
+        display: none;
+    }
+
 }

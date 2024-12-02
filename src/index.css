@@ -23,6 +23,15 @@ html, body {
   align-items: center;
 }
 
+.dashboard-light {
+  height: 100vh;
+  width: 100%;
+  background-color: hsl(0, 0%, 97%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .dashboard-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -37,7 +46,7 @@ html, body {
   height: 100%;
   grid-row: span 2;
 }
-
+/* hsl(0, 0%, 85%)*/
 .top-component {
   padding: 2rem;
   display: flex;
@@ -45,6 +54,17 @@ html, body {
   text-align: left;
   flex: 2;
   background-color: hsl(235, 45%, 61%);
+  border-radius: 1rem;
+  z-index: 2;
+}
+.dashboard-light .top-component {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  flex: 2;
+  background-color: hsl(0, 0%, 85%);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 1rem;
   z-index: 2;
 }
@@ -60,15 +80,27 @@ html, body {
   text-align: left;
   padding: 1.5rem;
 }
+.dashboard-light .bottom-component {
+  margin-top: -1rem;
+  border-radius: 0rem 0rem 1rem 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: hsl(0, 0%, 44%);
+  text-align: left;
+  padding: 1.5rem;
+}
+.dashboard-light .bottom-component h3 {
+  color: black
+}
 
 .bottom-component h3 {
   cursor: pointer;
 }
 
-.bottom-component h3:hover {
-  color: white;
-  transition: color 0.3s ease-in-out;
-}
+.dashboard .bottom-component h3:hover { color: white; transition: color 0.3s ease-in-out; } 
+.dashboard-light .bottom-component h3 { color: black;}
 
 .top-component img {
   margin-bottom: 2.5rem;
@@ -102,7 +134,13 @@ html, body {
     width: 100%;
     grid-row: span 1;
   }
+
   .dashboard {
+    height: auto;
+    justify-content: center;
+    align-items: center;
+  }
+  .dashboard-light {
     height: auto;
     justify-content: center;
     align-items: center;
@@ -132,6 +170,35 @@ html, body {
     font-size: 2rem;
   }
   .bottom-component {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  .dashboard-light .top-component {
+    padding-top: 2rem;
+    padding-left: .75rem;
+    padding-right: .75rem;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+  }
+  .dashboard-light .top-component img {
+    margin-bottom: 0px;
+    height: 3.5rem;
+    width: 3.5rem;
+    border-color:hsl(0, 1%, 77%) ;
+  }
+  .dashboard-light .top-component-text h3 {
+    margin: 0;
+  }
+  .dashboard-light .top-component-name {
+    flex-direction: row;
+    gap: 1rem;
+  }
+  .dashboard-light .top-component-name h1 {
+    margin: 0;
+    font-size: 2rem;
+  }
+  .dashboard-light .bottom-component {
     flex-direction: row;
     justify-content: space-evenly;
   }

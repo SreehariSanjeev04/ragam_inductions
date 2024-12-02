@@ -10,7 +10,10 @@ import SvgSocial from '../src/components/svg_social';
 import { MdOutlineDarkMode } from "react-icons/md";
 import { MdOutlineWbSunny } from "react-icons/md";
 const Dashboard = () => {
-    const Dark = true;
+    const [Dark, setDark] = useState(true);
+    const changeTheme = () => {
+        setDark((theme) => !theme);
+    }
     const [dashboardCard, setDashBoardCard] = useState([]);
     const info = ["Daily", "Weekly", "Monthly"];
     const modified_info = ["Yesterday", "Last Week", "Last Month"];
@@ -44,8 +47,8 @@ const Dashboard = () => {
     };
 
     return (
-        <div className="dashboard">
-            {Dark ? <MdOutlineWbSunny style={{color: 'white', position: 'absolute', top: '1rem', left: '1rem', width: '3rem', height: '3rem'}}/> : <MdOutlineDarkMode style={{color: 'white', position: 'absolute', top: '1rem', left: '1rem', width: '3rem', height: '3rem'}}/>}
+        <div className = {`dashboard${Dark ? '' : '-light'}`}>
+            {Dark ? <MdOutlineWbSunny onClick={changeTheme} style={{color: 'white', position: 'absolute', top: '1rem', left: '1rem', width: '3rem', height: '3rem', cursor: 'pointer'}}/> : <MdOutlineDarkMode onClick={changeTheme} style={{color: 'black', position: 'absolute', top: '1rem', left: '1rem', width: '3rem', height: '3rem', cursor: 'pointer'}}/>}
             
             <div className="dashboard-grid">
                 <div className="first-item">
@@ -64,7 +67,7 @@ const Dashboard = () => {
                             <h3
                                 key={index}
                                 onClick={() => handleSelectionChange(index)}
-                                style={{ color: index === selected ? 'white' : 'slategrey' }}
+                                style={{ color: index === selected ? 'white' : Dark ? 'slategrey' : 'black' }}
                             >
                                 {info}
                             </h3>
