@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import register_IMAGE from '../src/assets/login_image.avif';
 import '../src/styles/register.css';
 
@@ -26,6 +26,13 @@ const Register = () => {
         setUserDetails({ ...userDetails, [e.target.name]: e.target.value });
     };
 
+    useEffect(() => {
+        const LoggedIn = localStorage.getItem('loggedIn');
+        if(LoggedIn === "true") {
+            window.location.href = '/dashboard';
+            return;
+        }
+    },[])
     return (
         <div className="register-page">
             <div className="register-component">
@@ -57,7 +64,7 @@ const Register = () => {
                         required 
                     />
                     <button type="submit">Register</button>
-                    <a href="/login">Already have an account? Login</a>
+                    <a href="/">Already have an account? Login</a>
                 </form>
                 <img src={register_IMAGE} alt="register" className="register-image" />
             </div>

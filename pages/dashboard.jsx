@@ -9,6 +9,7 @@ import SvgSelfCare from '../src/components/svg_self_care';
 import SvgSocial from '../src/components/svg_social';
 import { MdOutlineDarkMode } from "react-icons/md";
 import { MdOutlineWbSunny } from "react-icons/md";
+import { CiLogout } from "react-icons/ci";
 const Dashboard = () => {
     const [Dark, setDark] = useState(true);
     const changeTheme = () => {
@@ -30,7 +31,11 @@ const Dashboard = () => {
     ];
 
     useEffect(() => {
-        fetch('/data/data.json') // Correct path for public directory
+        const LoggedIn = localStorage.getItem('loggedIn');
+        if (LoggedIn == "false") {
+            window.location.href = '/';
+        }
+        fetch('/data/data.json') 
             .then(response => response.json())
             .then((data) => {
                 setDashBoardCard(data);
@@ -46,10 +51,15 @@ const Dashboard = () => {
         }, 250);
     };
 
+    const handleLogout = () => {
+        localStorage.setItem('loggedIn', false);
+        window.location.href = '/';
+    };
+
     return (
         <div className = {`dashboard${Dark ? '' : '-light'}`}>
             {Dark ? <MdOutlineWbSunny onClick={changeTheme} style={{color: 'white', position: 'absolute', top: '1rem', left: '1rem', width: '3rem', height: '3rem', cursor: 'pointer'}}/> : <MdOutlineDarkMode onClick={changeTheme} style={{color: 'black', position: 'absolute', top: '1rem', left: '1rem', width: '3rem', height: '3rem', cursor: 'pointer'}}/>}
-            
+            <CiLogout onClick={handleLogout} alt='log_out' style={{color: Dark ? 'white' : 'black', position: 'absolute', top: '1rem', right: '1rem', width: '3rem', height: '3rem', cursor: 'pointer'}}/>
             <div className="dashboard-grid">
                 <div className="first-item">
                     <div className="top-component">
