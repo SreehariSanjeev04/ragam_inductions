@@ -33,8 +33,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/SreehariSanjeev04/ragam_inductions)
-- Live Site URL: [Add live site URL here](https://ragam-inductions.vercel.app/)
+- Solution URL: [Solution URL](https://github.com/SreehariSanjeev04/ragam_inductions)
+- Live Site URL: [Live Site](https://ragam-inductions.vercel.app/)
 
 ## My process
 
