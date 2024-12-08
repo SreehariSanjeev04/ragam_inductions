@@ -15,7 +15,6 @@ const Register = () => {
             let users = JSON.parse(localStorage.getItem('users')) || []; 
             users.push({ email: userDetails.email, password: userDetails.password });
             localStorage.setItem('users', JSON.stringify(users)); e
-            console.log(users);
             alert('Registration Successful!');
         } else {
             alert('Passwords do not match, try again!');

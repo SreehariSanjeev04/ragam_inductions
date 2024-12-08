@@ -4,9 +4,7 @@ import '../src/styles/login.css';
 const Login = () => {
   useEffect(() => {
     const loggedIn = localStorage.getItem('loggedIn');
-    console.log('log -> ' + loggedIn)
     if(loggedIn === "true") {
-      console.log('It is all well');
       window.location.href = '/dashboard';
     }
   },[])
